@@ -193,6 +193,7 @@ def event_details():
         form.cleaning.data = event_data.cleaning
         form.deposit_paid.data = event_data.deposit_paid
         form.bar.data = event_data.bar
+        form.id.data = event_data.id
 
     return render_template('event_details.html', title='Event Details',
                            form=form)

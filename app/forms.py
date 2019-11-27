@@ -68,6 +68,7 @@ class EventDetailsForm(FlaskForm):
     deposit_paid = BooleanField('Deposit paid?')
     bar = BooleanField('Bar?')
     submit = SubmitField('Update')
+    id = IntegerField('ID')
 
 
     class DeleteEventForm(FlaskForm):
