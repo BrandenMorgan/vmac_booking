@@ -1,0 +1,90 @@
+{% extends "base.html" %}
+
+
+{% block app_content %}
+
+<h2>Details</h2>
+<form action="" method="post" novalidate>
+  {{ form.hidden_tag() }}
+  {{ form.csrf_token }}
+  <div class="row">
+    <div class="form-group col-md-3">
+     {{ form.event_name.label }}<br>
+     {{ form.event_name(size=32) }}
+     </div>
+    <div class="form-group col-md-3">
+     {{ form.promoter_name.label }}<br>
+     {{ form.promoter_name(size=32) }}
+     </div>
+  <div class="form-group col-md-3">
+    {{ form.event_date.label }}<br>
+    {{ form.event_date(size=32) }}
+   </div>
+  </div>
+  <div class="row">
+    <div class="form-group col-md-3">
+    {{ form.event_type.label }}<br>
+    {{ form.event_type(size=32) }}
+   </div>
+    <div class="form-group col-md-3">
+      {{ form.event_manager.label }}<br>
+      {{ form.event_manager(size=32) }}
+   </div>
+    <div class="form-group col-md-3">
+      {{ form.deposit_amount.label }}<br>
+      ${{ form.deposit_amount(size=32) }}
+   </div>
+  </div>
+  <div class="row">
+   <div class="form-group col-md-3">
+    {{ form.guest_count.label }}<br>
+    {{ form.guest_count(size=32) }}
+  </div>
+   <div class="form-group col-md-3">
+    {{ form.bar_min.label }}<br>
+    ${{ form.bar_min(size=32) }}
+  </div>
+</div>
+<div class="form-group">
+  {{ form.other_notes.label }}<br>
+  {{ form.other_notes(rows='3',cols='150') }}
+</div>
+<div class="row">
+<div class="form-group col-md-3">
+    {{ form.booked.label }}
+    {{ form.booked() }}
+  </div>
+<div class="form-group col-md-3">
+    {{ form.tsl_approved.label }}
+    {{ form.tsl_approved() }}
+   </div>
+<div class="form-group col-md-3">
+    {{ form.balance_paid.label }}
+    {{ form.balance_paid() }}
+   </div>
+<div class="form-group col-md-3">
+    {{ form.contract_sent.label }}
+    {{ form.contract_sent() }}
+   </div>
+   <div class="form-group col-md-3">
+     {{ form.cleaning.label }}
+     {{ form.cleaning() }}
+    </div>
+    <div class="form-group col-md-3">
+      {{ form.deposit_paid.label }}
+      {{ form.deposit_paid() }}
+     </div>
+     <div class="form-group col-md-3">
+       {{ form.bar.label }}
+       {{ form.bar() }}
+     </div>
+</div>
+<div class="row">
+  <div class="form-group col-md-6">
+    {{ form.submit() }}
+  </div>
+</div>
+
+<div><a href="{{ url_for('delete_event', id=form.id) }}">Delete</a></div>
+  </form>
+{% endblock %}
