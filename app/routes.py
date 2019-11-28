@@ -72,7 +72,7 @@ def logout():
 def events():
     form = EventForm()
     events = Event.query.all()
-    return render_template('events.html', form=form, events = events)
+    return render_template('events.html', form=form, events=events)
     # events.get sqlalchemy syntax
 
 

@@ -94,12 +94,12 @@
   <td><a href="{{ url_for('event_details', id=event.id) }}" class="btn btn-primary" roll="button" >View Event</a></td>
 
 
-  <!-- Button trigger modal -->
+
   <td><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">
     Delete
   </button></td>
 
-  <!-- Modal -->
+
   <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
@@ -114,7 +114,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-            <a class="btn btn-danger" roll="button" href="{{ url_for('delete_event', id=event.id) }}">Delete</a>
+            <a class="btn btn-danger" href="{{ url_for('delete_event', id=event.id) }}" roll="button">Delete</a>
         </div>
       </div>
     </div>

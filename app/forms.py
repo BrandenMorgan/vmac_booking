@@ -70,7 +70,6 @@ class EventDetailsForm(FlaskForm):
     submit = SubmitField('Update')
     id = IntegerField('ID')
 
-
     class DeleteEventForm(FlaskForm):
         event_name = StringField('Event name', validators=[DataRequired()])
         promoter_name = StringField('Promoter name', validators=[DataRequired()])
