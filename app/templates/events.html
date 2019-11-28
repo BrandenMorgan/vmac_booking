@@ -91,15 +91,12 @@
   <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" disabled>
   {% endif %}
 
-  <td><a href="{{ url_for('event_details', id=event.id) }}">View Event</a></td>
-  <!-- <td><a href="{{ url_for('delete_event', id=event.id) }}">Delete</a></td> -->
-
-
+  <td><a href="{{ url_for('event_details', id=event.id) }}" class="btn btn-primary" roll="button" >View Event</a></td>
 
 
   <!-- Button trigger modal -->
-  <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-    Delete<a href="{{ url_for('delete_event', id=event.id) }}">Delete</a>
+  <td><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">
+    Delete
   </button></td>
 
   <!-- Modal -->
@@ -117,7 +114,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-          <button type="button" class="btn btn-primary">Delete</button>
+            <a class="btn btn-danger" roll="button" href="{{ url_for('delete_event', id=event.id) }}">Delete</a>
         </div>
       </div>
     </div>
