@@ -4,6 +4,7 @@
     {% if title %}{{ title }} - Book an event{% else %}Event booking{% endif %}
 {% endblock %}
 
+
 {% block navbar %}
     <nav class="navbar navbar-default">
         <div class="container">
@@ -33,6 +34,7 @@
     </nav>
 {% endblock %}
 
+
 {% block content %}
     <div class="container">
         {% with messages = get_flashed_messages() %}
@@ -43,6 +45,6 @@
         {% endif %}
         {% endwith %}
         {% block app_content %}{% endblock %}
+
     </div>
 {% endblock %}
-

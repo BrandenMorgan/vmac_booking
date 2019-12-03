@@ -3,8 +3,9 @@ from flask import render_template, flash, redirect, url_for, request
 from werkzeug.urls import url_parse
 from app import app, db
 from flask_login import current_user, login_user, logout_user, login_required
-from app.forms import LoginForm, RegistrationForm, EventForm, EventDetailsForm
+from app.forms import LoginForm, RegistrationForm, EventForm, EventDetailsForm, DatePickerExample
 from app.models import User, Event
+
 
 
 @app.route('/', methods=['GET', 'POST'])
@@ -41,7 +42,11 @@ def index():
 
 @app.route('/calendar')
 def calendar():
-    return "This is the calendar view"
+    # form = DatePickerExample()
+    #
+    # if form.validate_on_submit():
+    #     return form.date.data.strftime('%Y-%m-%d')
+    return render_template('datepicker.html')
 
 
 @app.route('/login', methods=['GET', 'POST'])
@@ -91,7 +96,7 @@ def delete_event():
     flash('Your event has been deleted.')
     return redirect(url_for('events'))
 
-
+# This is the endpoint with the unresponsive modal
 @app.route('/event_details', methods=['GET', 'POST'])
 @login_required
 def event_details():
@@ -166,3 +171,7 @@ def register():
         flash('Congratulations, you are now a registered user!')
         return redirect(url_for('login'))
     return render_template('register.html', title='Register', form=form)
+
+
+
+

@@ -1,8 +1,13 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, BooleanField, SubmitField, IntegerField, DateTimeField, TextAreaField
+from wtforms.fields.html5 import DateField
 from wtforms.validators import DataRequired, ValidationError, Email, EqualTo, Length
 from app.models import User, Event
 
+
+
+class DatePickerExample(FlaskForm):
+    date = DateField('DatePicker', format='%Y-%m-%d')
 
 class LoginForm(FlaskForm):
     username = StringField('Username', validators=[DataRequired()])
@@ -33,7 +38,7 @@ class RegistrationForm(FlaskForm):
 class EventForm(FlaskForm):
     event_name = StringField('Event name', validators=[DataRequired()])
     promoter_name = StringField('Promoter name', validators=[DataRequired()])
-    event_date = DateTimeField('Date', format='%m/%d/%Y', validators=[DataRequired()])
+    event_date = DateField('Date', format='%m/%d/%Y', validators=[DataRequired()])
     event_type = StringField('Event type', validators=[DataRequired()])
     event_manager = StringField('Event manager', validators=[DataRequired()])
     deposit_amount = IntegerField('Deposit amount', validators=[DataRequired()])
@@ -53,7 +58,7 @@ class EventForm(FlaskForm):
 class EventDetailsForm(FlaskForm):
     event_name = StringField('Event name', validators=[DataRequired()])
     promoter_name = StringField('Promoter name', validators=[DataRequired()])
-    event_date = DateTimeField('Date', format='%m/%d/%Y', validators=[DataRequired()])
+    event_date = DateField('Date', format='%m/%d/%Y', validators=[DataRequired()])
     event_type = StringField('Event type', validators=[DataRequired()])
     event_manager = StringField('Event manager', validators=[DataRequired()])
     deposit_amount = IntegerField('Deposit amount', validators=[DataRequired()])
@@ -69,22 +74,3 @@ class EventDetailsForm(FlaskForm):
     bar = BooleanField('Bar?')
     submit = SubmitField('Update')
     id = IntegerField('ID')
-
-    class DeleteEventForm(FlaskForm):
-        event_name = StringField('Event name', validators=[DataRequired()])
-        promoter_name = StringField('Promoter name', validators=[DataRequired()])
-        event_date = DateTimeField('Date', format='%m/%d/%Y', validators=[DataRequired()])
-        event_type = StringField('Event type', validators=[DataRequired()])
-        event_manager = StringField('Event manager', validators=[DataRequired()])
-        deposit_amount = IntegerField('Deposit amount', validators=[DataRequired()])
-        guest_count = IntegerField('Guest count', validators=[DataRequired()])
-        bar_min = IntegerField('Bar minimum', validators=[DataRequired()])
-        other_notes = TextAreaField('Other notes', validators=[Length(min=0, max=140)])
-        booked = BooleanField('Booked')
-        tsl_approved = BooleanField('TSL approved?')
-        balance_paid = BooleanField('Balance paid?')
-        contract_sent = BooleanField('Contract sent?')
-        cleaning = BooleanField('Cleaning')
-        deposit_paid = BooleanField('Deposit paid?')
-        bar = BooleanField('Bar?')
-        submit = SubmitField('Delete')
