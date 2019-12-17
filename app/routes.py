@@ -42,10 +42,7 @@ def index():
 
 @app.route('/calendar')
 def calendar():
-    # form = DatePickerExample()
-    #
-    # if form.validate_on_submit():
-    #     return form.date.data.strftime('%Y-%m-%d')
+
     return render_template('datepicker.html')
 
 

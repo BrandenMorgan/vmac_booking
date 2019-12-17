@@ -1,6 +1,5 @@
 {% extends "base.html" %}
 
-
 {% block app_content %}
 
 
@@ -20,22 +19,10 @@
 <!--datepicker implementation-->
   <div class="form-group col-md-3">
         {{ form.event_date.label }}<br>
-        {{ form.event_date(size=32, id='datepicker') }}
-              {% block scripts %}
-
-              <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-              <link rel="stylesheet" href="/resources/demos/style.css">
-              <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-              <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-              <script>
-              $( function() {
-                $( "#datepicker" ).datepicker();
-              } );
-              </script>
-
+     {{ form.event_date(size=32) }}
      </div>
       </div>
-               {% endblock %}
+
   <div class="row">
     <div class="form-group col-md-3">
     {{ form.event_type.label }}<br>
@@ -99,13 +86,13 @@
     {{ form.submit() }}
   </div>
 </div>
+
+
 <!--Modal delete confirm. Delete button does not trigger. same exact code works in events.html-->
-  <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">
+<button id= "btn" type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">
     Delete
   </button>
-
-
-  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -123,7 +110,9 @@
         </div>
       </div>
     </div>
-  </div>
+</div>
   </form>
 
 {% endblock %}
+
+

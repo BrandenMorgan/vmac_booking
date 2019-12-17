@@ -5,6 +5,7 @@ from flask_migrate import Migrate
 from flask_login import LoginManager
 from flask_bootstrap import Bootstrap
 from flask_datepicker import datepicker
+from flask_moment import Moment
 
 
 
@@ -16,6 +17,7 @@ login = LoginManager(app)
 login.login_view = 'login'
 bootstrap = Bootstrap(app)
 datepicker = datepicker(app)
+moment = Moment(app)
 
 
 from app import routes, models

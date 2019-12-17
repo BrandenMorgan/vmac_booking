@@ -1,0 +1,8 @@
+flask
+flask_sqlalchemy
+flask_migrate
+flask_login
+flask_bootstrap
+flask_datepicker
+flask_wtf
+flask_table

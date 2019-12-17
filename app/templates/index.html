@@ -22,21 +22,9 @@
       <div class="form-group col-md-3">
         {{ form.event_date.label }}<br>
         {{ form.event_date(size=32, id='datepicker') }}
-          {% block scripts %}
-
-              <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-              <link rel="stylesheet" href="/resources/demos/style.css">
-              <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-              <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-              <script>
-              $( function() {
-                $( "#datepicker" ).datepicker();
-              } );
-              </script>
-
        </div>
       </div>
-            {% endblock %}
+
       <div class="row">
         <div class="form-group col-md-3">
         {{ form.event_type.label }}<br>
@@ -101,4 +89,16 @@
       </div>
     </div>
       </form>
+{% endblock %}
+ {% block scripts %}
+
+              <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+              <link rel="stylesheet" href="/resources/demos/style.css">
+              <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+              <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+              <script>
+              $( function() {
+                $( "#datepicker" ).datepicker();
+              } );
+              </script>
 {% endblock %}
