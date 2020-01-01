@@ -6,3 +6,4 @@ flask_bootstrap
 flask_datepicker
 flask_wtf
 flask_table
+flask_moment

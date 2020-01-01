@@ -19,7 +19,7 @@
 <!--datepicker implementation-->
   <div class="form-group col-md-3">
         {{ form.event_date.label }}<br>
-     {{ form.event_date(size=32) }}
+        {{ form.event_date(size=32, id='picker') }}
      </div>
       </div>
 
@@ -89,10 +89,12 @@
 
 
 <!--Modal delete confirm. Delete button does not trigger. same exact code works in events.html-->
-<button id= "btn" type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">
+<td><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">
     Delete
-  </button>
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  </button></td>
+
+<!--Modal works with div class="modal" instead of div class="modal fade"-->
+  <div class="modal" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -114,5 +116,20 @@
   </form>
 
 {% endblock %}
-
+{% block scripts %}
+<link href="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.min.css" rel="stylesheet" />
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.full.min.js"></script>
+    <script>
+    $('#picker').datetimepicker({
+        timepicker: false,
+        datepicker: true,
+        format: 'm/d/Y', // formatDate
+        hours12: false,
+        step: 1
+    })
+    </script>
+{% endblock %}
 

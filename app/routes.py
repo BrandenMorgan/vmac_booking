@@ -7,7 +7,6 @@ from app.forms import LoginForm, RegistrationForm, EventForm, EventDetailsForm, 
 from app.models import User, Event
 
 
-
 @app.route('/', methods=['GET', 'POST'])
 @app.route('/index', methods=['GET', 'POST'])
 @login_required
