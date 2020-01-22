@@ -5,6 +5,7 @@ from app import app, db
 from flask_login import current_user, login_user, logout_user, login_required
 from app.forms import LoginForm, RegistrationForm, EventForm, EventDetailsForm, DatePickerExample
 from app.models import User, Event
+from app.google_calendar import create_event
 
 
 @app.route('/', methods=['GET', 'POST'])
@@ -34,6 +35,13 @@ def index():
 
         db.session.add(event)
         db.session.commit()
+        # function for writing to google calendar.
+        # add script to project and import here
+        event_date = str(event.event_date)
+        event_name = event.event_name
+
+        create_event(event_date, event_name)
+
         flash('Your event has been added!')
         return redirect(url_for('index'))
     return render_template('index.html', title='Home', form=form, events=events)
@@ -41,7 +49,6 @@ def index():
 
 @app.route('/calendar')
 def calendar():
-
     return render_template('datepicker.html')
 
 
@@ -91,6 +98,7 @@ def delete_event():
     db.session.commit()
     flash('Your event has been deleted.')
     return redirect(url_for('events'))
+
 
 # This is the endpoint with the unresponsive modal
 @app.route('/event_details', methods=['GET', 'POST'])

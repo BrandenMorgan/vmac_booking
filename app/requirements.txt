@@ -7,3 +7,9 @@ flask_datepicker
 flask_wtf
 flask_table
 flask_moment
+# Not sure these are necessary
+apiclient
+google_auth_oauthlib
+pickle
+datetime
+datefinder
